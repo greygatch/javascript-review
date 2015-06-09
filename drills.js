@@ -14,10 +14,10 @@ console.log('2 + 3 + 4 = ', argSum(2,3,4));
 /* 2 */
 
 function splitSum(arg, key){
-  return arg.split(key).map(Number).reduce(function(a,b){ return a + b });
+  return arg.split(key).map(Number).reduce(function(a, b){ return a + b });
 }
 
-console.log('3 + 4 +', splitSum("3&4&5&1", "&"));
+console.log('3 + 4 + 5 + 1 =', splitSum("3&4&5&1", "&"));
 
 
 /* 3 */
@@ -40,7 +40,7 @@ console.log('4 to 9 should be', createArrayFromAtoB(9, 4));
 function isTodayaFunction(){
   return new Date().toString().split(' ')[0] === 'Sun' || new Date().toString().split(' ')[0] === 'Sat';
 }
-console.log(isTodayaFunction());
+console.log('weekend? ', isTodayaFunction());
 
 
 /* 5 */
@@ -54,4 +54,4 @@ function cipher(str, arr){
 
 var key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 result = cipher('coding', new Array()).map(function(e) { return key[e/2]; }).join('');
-console.log(result);
+console.log('CODING = ', result);
