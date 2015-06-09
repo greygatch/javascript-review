@@ -1,47 +1,57 @@
+/* 1 */
+
 function argSum(args){
-    var sum = 0;
-    for(var i = 0; i < arguments.length; i++){
-        sum += arguments[i];
-    }
-    return sum;
+  var sum = 0;
+  for(var i = 0; i < arguments.length; i++){
+    sum += arguments[i];
+  }
+  return sum;
 }
 
-console.log('argSum: ', argSum(2,3,4));
+console.log('2 + 3 + 4 = ', argSum(2,3,4));
 
-function splitSum(arg1, key){
-    var numArg1 = arg1.split(key).map(function(e){ return e * 1}).reduce(function(a,b){ return a + b });
-    return numArg1;
+
+/* 2 */
+
+function splitSum(arg, key){
+  return arg.split(key).map(Number).reduce(function(a,b){ return a + b });
 }
 
-console.log(splitSum("3&4&5&1", "&"));
+console.log('3 + 4 +', splitSum("3&4&5&1", "&"));
+
+
+/* 3 */
 
 function createArrayFromAtoB(arg1, arg2){
-    var length = arg2 - arg1;
-    var arr = [];
-    for(var i = arg1; i <= arg2; i++){
-        arr.push(i);
-    }
-    return arr;
+  var start = Math.min(arg1, arg2);
+  var end = Math.max(arg1, arg2);
+  var arr = [];
+  for(var i = start; i <= end; i++){
+    arr.push(i);
+  }
+  return arr;
 }
 
-console.log(createArrayFromAtoB(4, 9));
+console.log('4 to 9 should be', createArrayFromAtoB(9, 4));
+
+
+/* 4 */
 
 function isTodayaFunction(){
-    var date = new Date();
-    return date.toString().split(' ')[0] === 'Sun' || date.toString().split(' ')[0] === 'Sat';
+  return new Date().toString().split(' ')[0] === 'Sun' || new Date().toString().split(' ')[0] === 'Sat';
 }
-
 console.log(isTodayaFunction());
 
 
+/* 5 */
 
 function cipher(str, arr){
-    var key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    str.split('').map(function(e){ return e.toUpperCase(); }).forEach(function(e){
-        arr.push(key.indexOf(e) * 2);
-    });
-    return arr;
+  str.split('').map(function(e){ return e.toUpperCase(); }).forEach(function(e){
+    arr.push(key.indexOf(e) * 2);
+  });
+  return arr;
 }
 
+var key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 result = cipher('coding', new Array()).map(function(e) { return key[e/2]; }).join('');
 console.log(result);
