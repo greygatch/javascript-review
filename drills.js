@@ -13,8 +13,8 @@ console.log('2 + 3 + 4 = ', argSum(2,3,4));
 
 /* 2 */
 
-function splitSum(arg, key){
-  return arg.split(key).map(Number).reduce(function(a, b){ return a + b });
+function splitSum(arg, del){
+  return arg.split(del).map(Number).reduce(function(a, b){ return a + b });
 }
 
 console.log('3 + 4 + 5 + 1 =', splitSum("3&4&5&1", "&"));
