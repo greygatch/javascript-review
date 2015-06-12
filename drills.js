@@ -70,3 +70,29 @@ var a = {'a' : 7, 'b' : 8, 'q': 9};
 var b = {'q' : 9, 'b' : 8, 'a': 7};
 
 console.log('should be true:', objCompare(b, a));
+
+function absAndRound(n){
+  var obj = {};
+  n = n.toString().split('');
+
+  obj.abs = n[0] === '-' ? parseFloat(n.slice(1, n.length).join('')) : parseFloat(n.slice(0, n.length).join(''));
+
+  if(Boolean(parseInt(n.join('').split('.')[1]) >= 5)){
+    obj.rounded = n[0] === '-' ? parseInt(n.join('').split('.')[0]) - 1 : parseInt(n.join('').split('.')[0]) + 1
+  }
+  else{
+    obj.rounded = parseInt(n.join('').split('.')[0])
+  }
+
+  return obj;
+}
+
+
+
+console.log(absAndRound(-9.6));
+console.log(absAndRound(9.6));
+console.log(absAndRound(2));
+console.log(absAndRound(-2));
+console.log(absAndRound(1.3));
+console.log(absAndRound(-1.3));
+console.log(absAndRound(0));
