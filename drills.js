@@ -52,3 +52,21 @@ function cipher(str, arr){
 var key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 result = cipher('coding', new Array()).map(function(e) { return key[e/2]; }).join('');
 console.log('CODING =', result);
+
+function objCompare(obj1, obj2){
+    var obj1Keys = Object.keys(obj1);
+    var obj2Keys = Object.keys(obj2);
+    var isSame = true;
+
+    if(obj1Keys.length === obj2Keys.length){
+        obj1Keys.forEach(function(k){
+            isSame = obj1[k] !== obj2[k] ? false : true
+        });
+    }
+    return isSame;
+}
+
+var a = {'a' : 7, 'b' : 8, 'q': 9};
+var b = {'q' : 9, 'b' : 8, 'a': 7};
+
+console.log(objCompare(b, a));
