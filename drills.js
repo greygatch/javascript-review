@@ -54,16 +54,16 @@ result = cipher('coding', new Array()).map(function(e) { return key[e/2]; }).joi
 console.log('CODING =', result);
 
 function objCompare(obj1, obj2){
-    var obj1Keys = Object.keys(obj1);
-    var obj2Keys = Object.keys(obj2);
-    var isSame = true;
+  var obj1Keys = Object.keys(obj1);
+  var obj2Keys = Object.keys(obj2);
+  var isSame = false;
 
-    if(obj1Keys.length === obj2Keys.length){
-        obj1Keys.forEach(function(k){
-            isSame = obj1[k] !== obj2[k] ? false : true
-        });
-    }
-    return isSame;
+  if(obj1Keys.length === obj2Keys.length){
+    obj1Keys.forEach(function(k){
+      isSame = obj1[k] !== obj2[k] ? false : true
+    });
+  }
+  return isSame;
 }
 
 var a = {'a' : 7, 'b' : 8, 'q': 9};
