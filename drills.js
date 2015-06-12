@@ -69,4 +69,4 @@ function objCompare(obj1, obj2){
 var a = {'a' : 7, 'b' : 8, 'q': 9};
 var b = {'q' : 9, 'b' : 8, 'a': 7};
 
-console.log(objCompare(b, a));
+console.log('should be true:', objCompare(b, a));
