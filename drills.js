@@ -77,7 +77,7 @@ function absAndRound(n){
 
   obj.abs = n[0] === '-' ? Number(n.slice(1, n.length).join('')) : Number(n.slice(0, n.length).join(''));
 
-  if(Boolean(Number(n.join('').split('.')[1][0]) >= 5)){
+  if(Number(n.join('').split('.')[1][0]) >= 5){
     obj.round = n[0] === '-' ? Number(n.join('').split('.')[0]) - 1 : Number(n.join('').split('.')[0]) + 1
   } else{
     obj.round = Number(n.join('').split('.')[0])
