@@ -77,9 +77,12 @@ function absAndRound(n){
 
   obj.abs = n[0] === '-' ? Number(n.slice(1, n.length).join('')) : Number(n.slice(0, n.length).join(''));
 
-  if(Number(n.join('').split('.')[1][0]) >= 5){
+
+  if(!n.join('').split('.')[1]){
+    obj.round = Number(n.join(''))
+  }else if(Number(n.join('').split('.')[1][0]) >= 5){
     obj.round = n[0] === '-' ? Number(n.join('').split('.')[0]) - 1 : Number(n.join('').split('.')[0]) + 1
-  } else{
+  }else{
     obj.round = Number(n.join('').split('.')[0])
   }
   return obj;
@@ -88,4 +91,7 @@ function absAndRound(n){
 
 
 console.log(JSON.stringify(absAndRound(-10.1957)) === JSON.stringify({abs: 10.1957, round: -10}));
-console.log(JSON.stringify(absAndRound(-10.6957)) === JSON.stringify({abs: 10.6957, round: -11}));
+console.log(JSON.stringify(absAndRound(10.6957)) === JSON.stringify({abs: 10.6957, round: 11}));
+console.log(JSON.stringify(absAndRound(0)) === JSON.stringify({abs: 0, round: -0}));
+console.log(JSON.stringify(absAndRound(-1)) === JSON.stringify({abs: 1, round: -1}));
+console.log(JSON.stringify(absAndRound(1)) === JSON.stringify({abs: 1, round: 1}));
